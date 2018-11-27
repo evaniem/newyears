@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>New Year</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<style type="text/css">
+#carhead
+{
+	color:white;
+}
+p
+{
+	padding:0;
+	margin:0;
+}
+footer
+{
+	background-color:#FBD3BD;
+}
+</style>
+</head>
+<body>
+		<!--<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="index.html"><img src="img\nav.png" height="50">
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="active"><a href="index.html">Home</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>-->
+
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+				<li data-target="#myCarousel" data-slide-to="3"></li>
+				<li data-target="#myCarousel" data-slide-to="4"></li>
+				<li data-target="#myCarousel" data-slide-to="5"></li>
+			</ol>
+			<div class="carousel-inner" role="listbox">
+				<div class="item active">
+				<img src="img/1.jpg" class="responsive">
+				<div class="carousel-caption">
+					<h1 id="carhead">new year's eve </h1>
+					<br>
+					<button type="button" onClick="document.getElementById('begin').scrollIntoView();" class="btn btn-default">countdown</button> 
+				</div>
+				</div> 
+				<!-- End of Active -->
+				<div class="item">
+					<img src="img/2.jpg" class="responsive">
+				</div>
+				<div class="item">
+					<img src="img/3.jpg" class="responsive">
+					<div class="carousel-caption">
+						<h1 id="carhead">Celebrations around the world</h1>
+						<br>
+						<button type="button" onClick="document.getElementById('rtw').scrollIntoView();" class="btn btn-default">go</button> 
+					</div>
+				</div>
+				<div class="item">
+					<img src="img/4.jpg" class="responsive">
+				</div>
+				<div class="item">
+					<img src="img/6.jpg" class="responsive">
+					<div class="carousel-caption">
+						<h1 id="carhead">Lunar New Year</h1>
+						<br>
+						<button type="button" onClick="document.getElementById('lny').scrollIntoView();" class="btn btn-default">explore</button> 
+					</div>
+				</div>
+				<div class="item">
+					<img src="img/5.jpg" class="responsive">
+				</div>
+				
+			</div>
+			<!--Start Slider Controls-->
+			<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"><span>
+			<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"><span>
+			<span class="sr-only">Next</span>
+			</a>
+			<div>
+
+			</div>
+		</div> 
+		<!--- End of Slider --->
+		<br>
+		<!-- Display the countdown timer in an element -->
+<p id="demo"></p>
+<!--
+<script>
+	function getTimeRemaining(endtime) {
+	  var t = Date.parse(endtime) - Date.parse(new Date());
+	  var seconds = Math.floor((t / 1000) % 60);
+	  var minutes = Math.floor((t / 1000 / 60) % 60);
+	  var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+	  var days = Math.floor(t / (1000 * 60 * 60 * 24));
+	  return {
+		'total': t,
+		'days': days,
+		'hours': hours,
+		'minutes': minutes,
+		'seconds': seconds
+	  };
+	}
+
+	function initializeClock(id, endtime) {
+	  var clock = document.getElementById(id);
+	  var daysSpan = clock.querySelector('.days');
+	  var hoursSpan = clock.querySelector('.hours');
+	  var minutesSpan = clock.querySelector('.minutes');
+	  var secondsSpan = clock.querySelector('.seconds');
+
+	  function updateClock() {
+		var t = getTimeRemaining(endtime);
+
+		daysSpan.innerHTML = t.days;
+		hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+		minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+		secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+		if (t.total <= 0) {
+		  clearInterval(timeinterval);
+		}
+	  }
+
+	  updateClock();
+	  var timeinterval = setInterval(updateClock, 1000);
+	}
+
+	var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
+	initializeClock('clockdiv', deadline);
+	
+	</script>
+
+<style>
+body{
+	text-align: center;
+	background: #00ECB9;
+  font-family: sans-serif;
+  font-weight: 100;
+}
+
+h1{
+  color: #396;
+  font-weight: 100;
+  font-size: 40px;
+  margin: 40px 0px 20px;
+}
+
+#clockdiv{
+	font-family: sans-serif;
+	color: #fff;
+	display: inline-block;
+	font-weight: 100;
+	text-align: center;
+	font-size: 30px;
+}
+
+#clockdiv > div{
+	padding: 10px;
+	border-radius: 3px;
+	background: #00BF96;
+	display: inline-block;
+}
+
+#clockdiv div > span{
+	padding: 15px;
+	border-radius: 3px;
+	background: #00816A;
+	display: inline-block;
+}
+
+.smalltext{
+	padding-top: 5px;
+	font-size: 16px;
+}	
+</style>
+
+<h1>Countdown Clock</h1>
+<div id="clockdiv">
+  <div>
+    <span class="days"></span>
+    <div class="smalltext">Days</div>
+  </div>
+  <div>
+    <span class="hours"></span>
+    <div class="smalltext">Hours</div>
+  </div>
+  <div>
+    <span class="minutes"></span>
+    <div class="smalltext">Minutes</div>
+  </div>
+  <div>
+    <span class="seconds"></span>
+    <div class="smalltext">Seconds</div>
+  </div>
+</div>
+
+	
+	<script id="begin">
+	var countDownDate = new Date("Jan 1, 2019 0:0:0").getTime();
+
+	var x = setInterval(function() {
+
+	  var now = new Date().getTime();
+
+	  var distance = countDownDate - now;
+
+	  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+	  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+	  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+	  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+	  + minutes + "m " + seconds + "s ";
+
+	  if (distance < 0) {
+		clearInterval(x);
+		document.getElementById("demo").innerHTML = "EXPIRED";
+	  }
+	}, 1000);
+	</script>--><!--End Countdown-->
+
+		<p align="center" id="begin" ><iframe src="http://free.timeanddate.com/countdown/i6iriewb/n3987/cf110/cm0/cu4/ct0/cs0/ca0/co0/cr0/ss0/cac000/cpc000/pcfbd3bd/tcfff/fs375/szw800/szh337/iso2019-01-01T00:00:00" allowTransparency="true" frameborder="0" width="800" height="337"></iframe></p>
+		
+		<div class="container">
+		<h2 > The Date </h2>
+			<div class="row">
+				<div  class="col-md-12">
+					<p>New Year is the time or day at which a new calendar year begins and the calendar's year count increments by one. Many cultures celebrate the event in some manner and the 1st day of January is often marked as a national holiday.
+					In the Gregorian calendar, the most widely used calendar system today, New Year occurs on January 1 (New Year's Day). This was also the case both in the Roman calendar (at least after about 713 BC) and in the Julian calendar that succeeded it. Other calendars have been used historically in different parts of the world; some calendars count years numerically, while others do not.</p>
+				</div>
+			</div>
+			<hr>
+			 <div class="row">
+			 	<div class="col-md-7">
+			 		<h3></h3>
+			 		<p>January 1 represents the fresh start of a new year after a period of remembrance of the passing year, including on radio, television, and in newspapers, which starts in early December in countries around the world. Publications have year-end articles that review the changes during the previous year. In some cases publications may set their entire year work alight in hope that the smoke emitted from the flame brings new life to the company. There are also articles on planned or expected changes in the coming year.
+
+<br><br>This day is traditionally a religious feast, but since the 1900s has also become an occasion to celebrate the night of December 31, called New Year's Eve. There are fireworks at midnight at the moment the new year arrives (a major one is in Sydney, Australia). Watchnight services are also still observed by many.</p>
+			 	</div>
+			 	<div class="col-md-5">
+				<br>
+			 		<img height=280px class="p-img"height="320px"src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Fuochi_d%27artificio.gif/300px-Fuochi_d%27artificio.gif" class="img-responsive" align="right">
+			 	</div>
+			 </div>
+		</div>
+		<div class="container">
+			<h2 id="rtw"> New Year's Celebrations Around the World</h2>
+			 <div class="row">
+			 	<br>
+			 	<div class="col-md-5">
+				<br>
+			 		<img class="p-img" height="450px" src="http://simplyjinglebells.com/wp-content/uploads/2018/11/when-is-new-year-in-japan-what-daywhen-years-eve-datewhen-day-958x944.jpg" class="img-responsive" align="left">
+			 	</div>
+			 	<div class="col-md-7">
+			 		<h3>Chasing away bad luck</h3>
+					<br>
+					<p>Many cultures have traditions meant to scare off demons and bad luck. <br>This often involves using fire or loud noises – or both – often in the form of fireworks!
+					<br>But there are other ways people do it, too.</p><br>
+					<p>In Scotland, for example, people hold bonfire celebrations. And men from villages walk through the streets swinging giant blazing fireballs over their heads. These fireballs represent the sun and they are supposed to clean the coming year.</p><br>
+			 		<p>In Panama, people use bonfires to burn likenesses of popular celebrities and political figures. These doll-like effigies represent the old year. Burning them brings a fresh start for the New Year.</p><br>
+			 		<p>Of course, some traditions meant to avoid bad luck do not involve fire at all.</p><br>
+					<p>For example, just before the New Year, people in Denmark find the highest surface they can and jump from it as the New Year starts. This is so they can jump into January! The hope is that they leave behind the bad spirits and bad luck of the previous and enter a New Year full of promise and new beginnings.</p>
+			 		</div>
+			 </div>
+			 <div class="row">
+			 	<br>
+			 	<div class="col-md-7">
+			 		<h3>Food for good luck</h3>
+					<br>
+					<p>Many cultures have certain foods that are said to bring good luck.</p>
+					<p>In Spain and some other countries, as the clock strikes midnight, people eat 12 grapes. These 12 grapes represent the 12 months of the year. And eating them all in the first 12 seconds of the New Year guarantees that the year will be filled with good luck.</p><br>
+					<p>In the Philippines, many people eat and display 12 round fruits to bring them a prosperous year.</p><br>
+			 		<p>In Panama, people use bonfires to burn likenesses of popular celebrities and political figures. These doll-like effigies represent the old year. Burning them brings a fresh start for the New Year.</p><br>
+			 		<p>And in Japan, people eat soba noodles on New Year’s Eve. While they eat they try not to break the long noodles -- which represent longevity.</p><br>
+					</div>
+				<div class="col-md-5">
+				<br>
+			 		<img class="p-img" height="350px" align="center" src="http://images4.newscred.com/cD1kY2I2YTU2NjU3MGQ4OTdjMGQ2ODgyMWUyMjY3ZjAzMCZnPWUyM2QxMjAwZjY2MWQwZWM0NTk2NzBhNDk1NGI1ZDdi" class="img-responsive" align="left">
+			 	</div>
+			 </div>
+			 
+			 <br><br>
+		</div>
+		
+		<div class="container">
+			<h2 id="lny"> Lunar New Year</h2>
+			<div class="row">
+				<div class="col-md-12">
+					<p>Lunar New Year is the beginning of a year whose months are coordinated by the cycles of the moon. The whole year may account to a purely lunar calendar or a lunisolar calendar.</p>
+				</div>
+			 </div>
+			 <hr>
+			 <div class="row">
+			 	<br>
+			 	<div class="col-md-5">
+				<br>
+			 		<img class="p-img" height="300px" src="https://www.wantedinrome.com/i/preview/storage/uploads/2018/02/chinese_new_year_rome.jpg" class="img-responsive" align="left">
+			 	</div>
+			 	<div class="col-md-7">
+			 		<h3>Chinese New Year</h3>
+					<br>
+					<p>Chinese New Year is a Chinese festival that celebrates the beginning of a new year on the traditional Chinese calendar. The festival is usually referred to as the Spring Festival in modern China, and is one of several Lunar New Years in Asia.<br>
+					<br> Observances traditionally take place from the evening preceding the first day of the year to the Lantern Festival, held on the 15th day of the year.
+					<br>The first day of Chinese New Year begins on the new moon that appears between January 21 and February 20.[2] In 2018, the first day of the Lunar New Year was on Friday, 16 February, initiating the year of the Dog.</p><br>
+					</div>
+			 </div>
+			 <div class="row">
+			 	<br>
+			 	<div class="col-md-7">
+			 		<h3>Japanese New Year</h3>
+					<br>
+					<p>The Japanese New Year (正月, <i>Shōgatsu</i>) is an annual festival with its own customs.<br>
+					Since 1873, the official Japanese New Year has been celebrated according to the Gregorian calendar, on January 1 of each year, New Year's Day (元日 Ganjitsu). 
+					However, many traditional events of the Japanese New Year are still celebrated on the first day of the year on the modern Tenpō calendar, the last official lunisolar calendar which was used until 1872 in Japan.</p><br>
+					<p>There is also an associated festival of Little New Year (小正月 koshōgatsu), traditionally celebrating the first full moon of the new year, on the 15th day of the first lunar month (approximately mid-February). This is now sometimes celebrated on January 15, in various respects. 
+					<br>The main events of Koshōgatsu are rites and practices praying for a bountiful harvest; rice gruel with adzuki beans (小豆粥 azukigayu) is traditionally eaten in the morning and is involved in the rice gruel divination ceremony. Further, New Year decorations are taken down around this date, and some temples hold events, such as at Tōrin-in.</p>
+					<p>This corresponds to the Chinese Lantern Festival.</p><br>
+					</div>
+				<div class="col-md-5">
+				<br><br><BR>
+			 		<img class="p-img" height="350px" align="center" src="https://www.hisgo.com/us/destination-japan/up_img/cke/imgs/20171228/templefirework.jpg" class="img-responsive" align="left">
+			 	</div>
+			 </div>
+			 
+			 <br><br>
+	</div>
+
+</body>
+	<footer class="page-footer font-small blue">
+
+	  <div class="footer-copyright text-center py-3">Sources:
+		<a href="wikipedia.com"> Wikipedia</a>
+		<a href="learningenglish.voanews.com"> VOA News</a>
+	  </div>
+
+	</footer>
+</html>
